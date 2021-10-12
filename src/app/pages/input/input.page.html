@@ -1,0 +1,62 @@
+<app-header [titulo]="nombre || 'Inputs'"></app-header>
+
+
+<ion-content class="ion-padding">
+
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Texto simple</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label position="floating">Nombre: </ion-label>
+            <ion-input type="text" placeholder="Nombre de la persona" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <!-- Referencia local de un formulario (formularioJon), necesita el modulo FormsModule de @angular/forms -->
+    <!-- Propio de angular ngSubmit mandar el formulario y recibirlo como instancia de NgForm -->
+    <form #formularioJon="ngForm" (ngSubmit)="onSubmit(formularioJon)">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Validaciones en form: {{formularioJon.valid}}</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        
+        <ion-item>
+            <ion-label>Email: </ion-label>
+            <ion-input 
+                type="email" 
+                placeholder="Correo"
+                name="email"
+                [(ngModel)]="usuario.email"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                required>
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Password: </ion-label>
+            <ion-input 
+                type="password" 
+                placeholder="Contraseña"
+                name="pass"
+                [(ngModel)]="usuario.password"
+                required>
+            </ion-input>
+        </ion-item>
+
+        <ion-button 
+            type="submit"
+            [disabled]="formularioJon.invalid"
+            expand="block" 
+            shape="round" 
+            color="facebook">
+            Login
+        </ion-button>
+
+    </form>
+
+
+</ion-content>

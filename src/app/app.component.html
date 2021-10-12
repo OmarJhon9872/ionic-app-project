@@ -1,3 +1,43 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+    <!-- Split pane nos va a divir pantalla cuando se cumpla la condicion when -->
+    <!-- Puede ser mediante medidas md o mediante mediaquerys when="(min-width: 40px)" -->
+    <ion-split-pane when="md" contentId="main">
+
+
+
+        <!-- 1.- Para la implementacion de un menu -->
+        <!-- 2.- El contentId es el ID referencia al contenido principal, en este caso el routing -->
+        <!-- 3.- Para implementarlo, en el componente principal (inicio.page.html) se agrega el boton -->
+        <ion-menu side="start" menuId="first" contentId="main">
+            <ion-header>
+                <ion-toolbar color="primary">
+                    <ion-title>Componentes app.component.html</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list>
+                    
+                    <!-- Con autoHide evitamos que se auto oculten las opciones -->
+                    <ion-menu-toggle    *ngFor="let pagina of paginas | async"
+                                        autoHide="false">
+                        <ion-item [routerLink]="pagina.redirectTo" detail>
+                            <ion-icon slot="start" [name]="pagina.icon"></ion-icon>
+                            {{pagina.name}}
+                        </ion-item>
+
+                    </ion-menu-toggle>
+
+
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+
+        <!-- Router outlet principal de rutas -->
+        <ion-router-outlet id="main"></ion-router-outlet>
+
+
+    </ion-split-pane>
+
+
 </ion-app>

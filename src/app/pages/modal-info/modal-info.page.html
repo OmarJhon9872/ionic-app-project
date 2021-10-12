@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+      <!-- Se reciben los parametros desde el @input de modal.page.ts -->
+    <ion-title>{{ nombre }} - {{ edad }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-button (click)="salirSinArgumentos()" expand="block">
+        Cerrar modal sin argumentos
+    </ion-button>
+
+    <!-- Para mandar parametros del modal al padre se implementa la funcion -->
+    <ion-button (click)="salirConArgumentos()" expand="block">
+        Cerrar modal con argumentos
+    </ion-button>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+
+    
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <!-- Aqui el menu toma la referencia menuId de App.component.html -->
+            <ion-menu-button menu="first"></ion-menu-button>
+        </ion-buttons>
+
+        <!-- Para implementacion tardada seguir instrucciones menu, lo mismo arriba -->
+        <!-- 4.- Dentro del toolbar se agrega el boton y se llama al metodo abrir menu -->
+        <!-- 5.- Para implementar el motodo se inyecta en el constructor inicio.page.ts#construct() -->
+        <!-- <ion-buttons slot="start">
+            <ion-button (click)="abrirMenu()" color="success">
+                <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons> -->
+
+
+        <ion-title>Componentes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- Detail true en caso de querer indicar la flecha de "mas" -->
+    <ion-list>
+        <ion-item
+            *ngFor="let c of componentes | async"
+            [routerLink]="c.redirectTo"
+            detail="true">
+
+            <ion-icon [name]="c.icon" slot="start"></ion-icon>
+            {{c.name}}
+ 
+        </ion-item>
+    </ion-list>
+    <!-- <ion-button routerLink="/alert">
+        Click me
+    </ion-button>
+    <br>
+    <ion-button routerLink="/action-sheet">
+        Boton de accion
+    </ion-button> -->
+</ion-content>

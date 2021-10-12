@@ -1,0 +1,26 @@
+<app-header 
+    titulo="Componente Alerta"
+    class="ion-text-capitalize">
+</app-header>
+
+<ion-content class="ion-padding">
+    <ion-button (click)="presentAlert()" expand="block" color="danger">
+        Present Alert
+    </ion-button>
+
+    <ion-button (click)="presentAlertMultipleButtons()" expand="block" color="primary">
+        Present Alert Multiple Buttons
+    </ion-button>
+
+    <ion-button (click)="presentAlertPrompt()" expand="block" color="secondary">
+        Present Alert Prompt
+    </ion-button>
+
+    <ion-button (click)="presentAlertRadio()" expand="block" color="tertiary">
+        Present Alert Radio
+    </ion-button>
+
+    <ion-button (click)="presentAlertCheckbox()" expand="block" color="success">
+        Present Alert Checkbox
+    </ion-button>
+</ion-content>

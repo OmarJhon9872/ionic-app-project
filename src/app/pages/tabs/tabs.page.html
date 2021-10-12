@@ -1,0 +1,27 @@
+
+
+<ion-tabs>
+
+    <!-- 1.- Ubicacion principal de los tabs -->
+    <ion-tab-bar slot="bottom">
+        
+        <!-- 2.- El tab representa la ruta a la que tratara de acceder TABS/account  -->
+        <!-- 3.- Se definen las rutas hijas en tabs-routing.module.ts -->
+        <ion-tab-button tab="account">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>Account</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="call">
+            <ion-icon name="call-outline"></ion-icon>
+            <ion-label>Calling</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="settings">
+            <ion-icon name="settings-outline"></ion-icon>
+            <ion-label>Settings</ion-label>
+        </ion-tab-button>
+
+    </ion-tab-bar>
+
+</ion-tabs>

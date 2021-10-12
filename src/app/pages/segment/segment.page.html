@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-buttons>
+                <ion-back-button defaultHref="/" color="primary"></ion-back-button>
+            </ion-buttons>
+        </ion-buttons>
+
+        <ion-title color="primary">Segments</ion-title>
+
+    </ion-toolbar>
+
+        <!-- Scrollable, value indica que sera el elemento seleccionado -->
+        <ion-segment scrollable value="" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="">
+                <ion-icon name="american-football-outline"></ion-icon>
+                <ion-label>Todos</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Marvel Comics">
+                <ion-icon name="search-outline"></ion-icon>
+                <ion-label>Marvel Comics</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="DC Comics">
+                <ion-icon name="accessibility-outline"></ion-icon>
+                <ion-label>DC Comics</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item   *ngFor="let heroe of (heroes | async) | filtroSearchBar:valorBuscado:'publisher'"
+                    class="animate__animated animate__fadeIn">
+            <ion-label>
+                <h4>
+                    {{heroe.superhero}} <br>
+                    <small>{{heroe.alter_ego}}</small>
+                </h4>
+
+
+            </ion-label>
+            <p slot="end">{{heroe.publisher}}</p>
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="(heroes | async) === null">
+        <ion-item *ngFor="let item of [1,2,3,4,5,6,7,1,1,1,1]">
+            <ion-label>
+                <h4>
+                    <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                </h4>
+            </ion-label>
+            <ion-skeleton-text slot="end" animated style="width: 30px; height: 30px;"></ion-skeleton-text>
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>
